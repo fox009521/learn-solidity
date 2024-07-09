@@ -4,7 +4,7 @@ pragma solidity ^0.8.24;
 // Memory - data is clreared out after a function call
 // Transient storage - data is cleared out after a transaction
 interface ITest {
-    function val() external returns (uint256)
+    function val() external view returns (uint256);
     function test() external;
 }
 
@@ -33,7 +33,6 @@ contract TestTransientStorage {
         assembly {
             tstore(SLOT, 321)
         }
-
         bytes memory b = "";
         msg.sender.call(b);
     }
